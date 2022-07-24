@@ -10,8 +10,9 @@ public class Main {
         Triangle triangle6 = new Triangle(new A(1, 1), new B(5, 8), new C(7, 4));
         Triangle triangle7 = new Triangle(new A(1, 5), new B(2, 2), new C(4, 2));
         Triangle triangle8 = new Triangle(new A(-1, -5), new B(2, 2), new C(4, 2));
+        Triangle triangle9 = new Triangle(new A(-1, -5), new B(6, 9), new C(15, 9));
 
-        Triangle[] triangles = {triangle1, triangle2, triangle3, triangle4, triangle5, triangle6, triangle7, triangle8};
+        Triangle[] triangles = {triangle1, triangle2, triangle3, triangle4, triangle5, triangle6, triangle7, triangle8, triangle9};
         printTypesNumber(triangles);
         printComparison(triangles);
     }
@@ -42,7 +43,7 @@ public class Main {
                 for (int j = 0; j < triangles.length; j++) {
                     if (typeList[j] == i + 1) {
                         maxPerimeter = triangles[j].getPerimeter();
-                        System.out.print("We have found just 1 triangle with perimeter: " + Math.round(maxPerimeter) + " ");
+                        System.out.print("We have found just 1 triangle (triangle" + (j + 1) + ") with perimeter: " + Math.round(maxPerimeter) + " ");
                         maxPerimeter = 0;
                         maxArea = triangles[j].getArea();
                         System.out.println("and area: " + Math.round(maxArea));
@@ -57,30 +58,42 @@ public class Main {
                         break;
                     }
                 }
+                int numMaxPerimeter = 0;
+                int numMinPerimeter = 0;
+                int numMaxArea = 0;
+                int numMinArea = 0;
                 for (int j = 0; j < triangles.length; j++) {
                     if (typeList[j] == i + 1) {
                         if (triangles[j].getPerimeter() > maxPerimeter) {
                             maxPerimeter = triangles[j].getPerimeter();
+                            numMaxPerimeter = j + 1;
                         }
                         if (minPerimeter > triangles[j].getPerimeter()) {
                             minPerimeter = triangles[j].getPerimeter();
+                            numMinPerimeter = j + 1;
                         }
                         if (triangles[j].getArea() > maxArea) {
                             maxArea = triangles[j].getArea();
+                            numMaxArea = j + 1;
                         }
                         if (minArea > triangles[j].getArea()) {
                             minArea = triangles[j].getArea();
+                            numMinArea = j + 1;
                         }
                     }
                 }
-                System.out.println("The max perimeter of triangle this type is: " + Math.round(maxPerimeter));
-                System.out.println("The min perimeter of triangle this type is: " + Math.round(minPerimeter));
-                System.out.println("The max area of triangle this type is: " + Math.round(maxArea));
-                System.out.println("The min area of triangle this type is: " + Math.round(minArea));
+                System.out.println("The max perimeter of triangle (triangle" + numMaxPerimeter + ") this type is: " + Math.round(maxPerimeter));
+                System.out.println("The min perimeter of triangle (triangle" + numMinPerimeter + ") this type is: " + Math.round(minPerimeter));
+                System.out.println("The max area of triangle (triangle" + numMaxArea + ") this type is: " + Math.round(maxArea));
+                System.out.println("The min area of triangle (triangle" + numMinArea + ")this type is: " + Math.round(minArea));
                 maxPerimeter = 0;
                 minPerimeter = 0;
                 maxArea = 0;
                 minArea = 0;
+                numMaxPerimeter = 0;
+                numMinPerimeter = 0;
+                numMaxArea = 0;
+                numMinArea = 0;
             }
         }
     }
