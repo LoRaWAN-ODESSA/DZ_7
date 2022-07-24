@@ -9,19 +9,20 @@ public class Main {
         Triangle triangle5 = new Triangle(new A(0, 0), new B(0, 10), new C(5, 0));
         Triangle triangle6 = new Triangle(new A(1, 1), new B(5, 8), new C(7, 4));
         Triangle triangle7 = new Triangle(new A(1, 5), new B(2, 2), new C(4, 2));
+        Triangle triangle8 = new Triangle(new A(-1, -5), new B(2, 2), new C(4, 2));
 
-        Triangle[] triangles = {triangle1, triangle2, triangle3, triangle4, triangle5, triangle6, triangle7};
+        Triangle[] triangles = {triangle1, triangle2, triangle3, triangle4, triangle5, triangle6, triangle7, triangle8};
         printTypesNumber(triangles);
         printComparison(triangles);
     }
 
     public static void printTypesNumber(Triangle[] triangles) {
-        int[] typeNumber = calculateTypes(triangles);
+        int[] typeList = calculateTypes(triangles);
         System.out.println("The list of triangles by types:");
-        System.out.println("Equilateral: " + typeNumber[0]);
-        System.out.println("Isosceles: " + typeNumber[1]);
-        System.out.println("Right: " + typeNumber[2]);
-        System.out.println("Scalene: " + typeNumber[3] + "\n");
+        System.out.println("Equilateral: " + typeList[0]);
+        System.out.println("Isosceles: " + typeList[1]);
+        System.out.println("Right: " + typeList[2]);
+        System.out.println("Scalene: " + typeList[3] + "\n");
     }
 
     public static void printComparison(Triangle[] triangles) {
