@@ -112,7 +112,7 @@ public class PrintParameters {
     }
 
     private int[] calculateTypes() {
-        int[] result = {0, 0, 0, 0};
+        int[] result = new int[categories.length];
         for (int i = 0; i < typeNumber.length; i++) {
             if (typeNumber[i] == 1) {
                 result[0]++;
