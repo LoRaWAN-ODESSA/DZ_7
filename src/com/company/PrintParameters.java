@@ -3,6 +3,7 @@ package com.company;
 public class PrintParameters {
 
     private Triangle[] triangles;
+    private String[] categories = {"Equilateral: ", "Isosceles: ", "Right: ", "Scalene: "};
 
     public PrintParameters(Triangle[] triangles) {
         this.triangles = triangles;
@@ -11,10 +12,10 @@ public class PrintParameters {
     private void printTypesNumber() {
         int[] typeList = calculateTypes();
         System.out.println("The list of triangles by types:");
-        System.out.println("Equilateral: " + typeList[0]);
-        System.out.println("Isosceles: " + typeList[1]);
-        System.out.println("Right: " + typeList[2]);
-        System.out.println("Scalene: " + typeList[3] + "\n");
+        for (int i = 0; i < categories.length; i++) {
+            System.out.println(categories[i] + typeList[i]);
+        }
+        System.out.println();
     }
 
     private void printComparison() {
@@ -22,7 +23,6 @@ public class PrintParameters {
         double minPerimeter = 0;
         double maxArea = 0;
         double minArea = 0;
-        String[] categories = {"Equilateral:", "Isosceles:", "Right:", "Scalene:"};
         int[] typeList = findTypesNumber();
         int[] typeNumber = calculateTypes();
         System.out.println("The list of comparison triangles by perimeter and area by types:");
