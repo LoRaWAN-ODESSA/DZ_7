@@ -13,6 +13,11 @@ public class PrintParameters {
         typeNumber = calculateTypes();
     }
 
+    public void printInfo() {
+        printTypesNumber();
+        printComparison();
+    }
+
     private void printTypesNumber() {
         System.out.println("The list of triangles by types:");
         for (int i = 0; i < categories.length; i++) {
@@ -88,11 +93,6 @@ public class PrintParameters {
                 numMinArea = 0;
             }
         }
-    }
-
-    public void printInfo() {
-        printTypesNumber();
-        printComparison();
     }
 
     private int[] findTypesNumber() {
