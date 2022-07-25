@@ -4,16 +4,19 @@ public class PrintParameters {
 
     private Triangle[] triangles;
     private String[] categories = {"Equilateral: ", "Isosceles: ", "Right: ", "Scalene: "};
+    private int[] typeList;
+    private int[] typeNumber;
 
     public PrintParameters(Triangle[] triangles) {
         this.triangles = triangles;
+        typeList = findTypesNumber();
+        typeNumber = calculateTypes();
     }
 
     private void printTypesNumber() {
-        int[] typeList = calculateTypes();
         System.out.println("The list of triangles by types:");
         for (int i = 0; i < categories.length; i++) {
-            System.out.println(categories[i] + typeList[i]);
+            System.out.println(categories[i] + typeNumber[i]);
         }
         System.out.println();
     }
@@ -23,8 +26,6 @@ public class PrintParameters {
         double minPerimeter = 0;
         double maxArea = 0;
         double minArea = 0;
-        int[] typeList = findTypesNumber();
-        int[] typeNumber = calculateTypes();
         System.out.println("The list of comparison triangles by perimeter and area by types:");
         for (int i = 0; i < typeNumber.length; i++) {
             System.out.println(categories[i]);
@@ -95,7 +96,7 @@ public class PrintParameters {
     }
 
     private int[] findTypesNumber() {
-        int[] typeNumber = new int[triangles.length];
+        typeNumber = new int[triangles.length];
         for (int i = 0; i < triangles.length; i++) {
             if (triangles[i].isEquilateral()) {
                 typeNumber[i] = 1;
@@ -111,7 +112,6 @@ public class PrintParameters {
     }
 
     private int[] calculateTypes() {
-        int[] typeNumber = findTypesNumber();
         int[] result = {0, 0, 0, 0};
         for (int i = 0; i < typeNumber.length; i++) {
             if (typeNumber[i] == 1) {

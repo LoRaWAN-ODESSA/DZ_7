@@ -13,6 +13,7 @@ public class Main {
         Triangle triangle9 = new Triangle(new A(-1, -5), new B(6, 9), new C(15, 9));
 
         Triangle[] triangles = {triangle1, triangle2, triangle3, triangle4, triangle5, triangle6, triangle7, triangle8, triangle9};
+
         PrintParameters printParameters = new PrintParameters(triangles);
         printParameters.printInfo();
     }
