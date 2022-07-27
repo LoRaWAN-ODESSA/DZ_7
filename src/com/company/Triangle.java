@@ -2,9 +2,9 @@ package com.company;
 
 public class Triangle {
 
-    private A a;
-    private B b;
-    private C c;
+    private Point a;
+    private Point b;
+    private Point c;
     private double lengthA;
     private double lengthB;
     private double lengthC;
@@ -18,7 +18,7 @@ public class Triangle {
     private double perimeter;
     private double area;
 
-    public Triangle(A a, B b, C c) {
+    public Triangle(Point a, Point b, Point c) {
         this.a = a;
         this.b = b;
         this.c = c;
